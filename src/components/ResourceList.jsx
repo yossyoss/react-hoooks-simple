@@ -1,8 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
+import userResources from "./userResources";
 
-class ResourceList extends Component {
-  render() {
-    return <div>{this.props.resource}</div>;
-  }
-}
+const ResourceList = ({ resource }) => {
+  const resources = userResources(resource);
+
+  return (
+    <ul>
+      {resources.map(record => {
+        return <li key={record.id}>{record.title}</li>;
+      })}
+    </ul>
+  );
+};
+
 export default ResourceList;
